@@ -1,6 +1,8 @@
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
+
+
 import random,string
-
-
 
 # num:一次性生成账号个数
 # length:账号长度
@@ -51,7 +53,7 @@ def user_password(num,length,has_numer=1,has_uppercase=1,has_lowercase=1,suffix=
 
             random.shuffle(d1)
             users = ''.join(d1) + suffix +'\n'
-            print(users)
+            #print(users)
             if users not in result:
                 result.append(users)
                 count +=1
