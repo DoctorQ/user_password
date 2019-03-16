@@ -7,7 +7,7 @@ import random,string
 # num:一次性生成账号个数
 # length:账号长度
 # has_number:是否含有数字,0表示不含有,1表示含有,默认为1
-# has_uppercase:是否还有大写字母,0表示不含有,1表示含有,默认为1
+# has_uppercase:是否含有大写字母,0表示不含有,1表示含有,默认为1
 # has_lowercase:是否含有小写字母,0表示不含有,1表示含有,默认为1
 # suffix:字符串类型,默认为""
 # file_name:字符串类型,账号存放的文件名
