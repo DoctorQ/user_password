@@ -63,7 +63,7 @@ def user_password(num,length,has_numer=1,has_uppercase=1,has_lowercase=1,suffix=
             break
     #with open(file_name,'w') as fw:
     #    fw.writelines(result)
-    work_book = xlwt.Workbook()
+    work_book = xlwt.Workbook(encoding='utf-8')
     sheet = work_book.add_sheet('account')
     for item in range(len(result)):
         sheet.write(item, 0, result[item])
