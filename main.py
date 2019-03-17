@@ -12,7 +12,7 @@ import xlwt
 # has_lowercase:是否含有小写字母,0表示不含有,1表示含有,默认为1
 # suffix:字符串类型,默认为""
 # file_name:字符串类型,账号存放的文件名
-def user_password(num,length,has_numer=1,has_uppercase=1,has_lowercase=1,suffix="",file_name="users.txt"):
+def user_password(num,length,has_numer=1,has_uppercase=1,has_lowercase=1,suffix="",file_name="users.xls"):
     result = []
     #小写字母
     a = string.ascii_lowercase
@@ -63,6 +63,7 @@ def user_password(num,length,has_numer=1,has_uppercase=1,has_lowercase=1,suffix=
             break
     #with open(file_name,'w') as fw:
     #    fw.writelines(result)
+    # 如果传入的文件名为空
     if (len(file_name) != 0):
         work_book = xlwt.Workbook(encoding='utf-8')
         sheet = work_book.add_sheet('account')
