@@ -63,11 +63,12 @@ def user_password(num,length,has_numer=1,has_uppercase=1,has_lowercase=1,suffix=
             break
     #with open(file_name,'w') as fw:
     #    fw.writelines(result)
-    work_book = xlwt.Workbook(encoding='utf-8')
-    sheet = work_book.add_sheet('account')
-    for item in range(len(result)):
-        sheet.write(item, 0, result[item])
-    work_book.save(file_name)
+    if (len(file_name) == 0):
+        work_book = xlwt.Workbook(encoding='utf-8')
+        sheet = work_book.add_sheet('account')
+        for item in range(len(result)):
+            sheet.write(item, 0, result[item])
+        work_book.save(file_name)
     print('generator %d account success.'%len(result))
 
     return result
@@ -88,6 +89,15 @@ user_password(num=10,length=3,has_numer=0,file_name="user5.xls")
 user_password(num=10,length=10,has_uppercase=0,file_name="user6.xls")
 #生成10个账号，账号位数为10个，包含大写字母和数字，无后缀
 user_password(num=10,length=10,has_lowercase=0,file_name="user7.xls")
-
+#生成10000个账号密码一起写入到一个excel中
+account = user_password(num=10000,length=10)
+password = user_password(num=10000,length=10,has_uppercase=0,has_lowercase=0)
+work_book = xlwt.Workbook(encoding='utf-8')
+sheet = work_book.add_sheet('account')
+for item in range(len(account)):
+    sheet.write(item, 0, account[item])
+    sheet.write(item, 1, password[item])
+work_book.save('test_account_password.xls')
+ 
 
 
