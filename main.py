@@ -3,6 +3,7 @@
 
 
 import random,string
+import xlwt
 
 # num:一次性生成账号个数
 # length:账号长度
@@ -60,26 +61,32 @@ def user_password(num,length,has_numer=1,has_uppercase=1,has_lowercase=1,suffix=
         else:
             print('请输入大于2的长度')
             break
-    with open(file_name,'w') as fw:
-        fw.writelines(result)
+    #with open(file_name,'w') as fw:
+    #    fw.writelines(result)
+    work_book = xlwt.Workbook()
+    sheet = work_book.add_sheet('account')
+    for item in range(len(result)):
+        sheet.write(item, 0, result[item])
+    work_book.save(file_name)
+
     return result
 
 #用法示例
 
 #生成10个账号，账号位数是8个，后缀以@结尾qq.com，包含数字，大写字母和小写字母
-user_password(num=10,length=8,suffix="@qq.com",file_name="user1.txt")
+user_password(num=10,length=8,suffix="@qq.com",file_name="user1.xls")
 #生成1个账号，账号位数是10个，只包含数字，无后缀
-user_password(num=1,length=10,has_uppercase=0,has_lowercase=0,file_name="user2.txt")
+user_password(num=1,length=10,has_uppercase=0,has_lowercase=0,file_name="user2.xls")
 #生成10个账号，账号位数为11个，只包含小写字母，无后缀
-user_password(num=10,length=11,has_numer=0,has_uppercase=0,file_name="user3.txt")
+user_password(num=10,length=11,has_numer=0,has_uppercase=0,file_name="user3.xls")
 #生成10个账号，账号位数为3个，只包含大写字母，无后缀
-user_password(num=10,length=3,has_numer=0,has_lowercase=0,file_name="user4.txt")
+user_password(num=10,length=3,has_numer=0,has_lowercase=0,file_name="userr4.xls")
 #生成10个账号，账号位数为15个，包含小写字母和大写字母，无后缀
-user_password(num=10,length=3,has_numer=0,file_name="user5.txt")
+user_password(num=10,length=3,has_numer=0,file_name="user5.xls")
 #生成10个账号，账号位数为10个，包含小写字母和数字，无后缀
-user_password(num=10,length=10,has_uppercase=0,file_name="user6.txt")
+user_password(num=10,length=10,has_uppercase=0,file_name="user6.xls")
 #生成10个账号，账号位数为10个，包含大写字母和数字，无后缀
-user_password(num=10,length=10,has_lowercase=0,file_name="user7.txt")
+user_password(num=10,length=10,has_lowercase=0,file_name="user7.xls")
 
 
 
